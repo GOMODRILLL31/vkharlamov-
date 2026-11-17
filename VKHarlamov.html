@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Харламов Василий Константинович — Химик</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #0d9488;
+      --accent-dark: #0f766e;
+      --accent-light: #ccfbf1;
+      --border: #e2e8f0;
+      --radius: 14px;
+      --shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Навигация */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 68px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Главный экран */
+    .hero {
+      padding: 68px 0 52px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.8vw, 2.75rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 580px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .avatar-photo {
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 16px;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.18);
+    }
+
+    .hero-meta {
+      list-style: none;
+      text-align: left;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .hero-meta li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .hero-meta li:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-meta strong {
+      color: var(--text);
+      text-align: right;
+    }
+
+    /* Секции */
+    section {
+      padding: 44px 0;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      color: var(--text);
+      font-size: 0.9rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .tag-accent {
+      background: #f0fdfa;
+      border-color: #99f6e4;
+      color: var(--accent-dark);
+    }
+
+    /* Таймлайн */
+    .timeline-item {
+      padding-left: 18px;
+      border-left: 2px solid var(--accent-light);
+      margin-bottom: 22px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      margin-bottom: 4px;
+    }
+
+    .timeline-role {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
+    .timeline-place {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Контакты */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-label {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    .contact-value {
+      font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 32px;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 36px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2" stroke-linejoin="round">
+          <polygon points="12 2 20.66 7 20.66 17 12 22 3.34 17 3.34 7 12 2"></polygon>
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+        <span>Василий Харламов</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#skills">Умения и направления</a></li>
+        <li><a href="#data">Образование и опыт</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Главный блок -->
+    <section class="hero">
+      <div>
+        <span class="badge">Химический факультет МГУ • Студент</span>
+        <h1>Харламов Василий Константинович</h1>
+        <p>
+          Занимаюсь медицинской химией и тонким органическим синтезом. Имею практический опыт работы как в аналитической лаборатории, так и в лаборатории тонкого органического синтеза.
+        </p>
+        <div class="btn-group">
+          <a href="#contacts" class="btn btn-primary">Связаться со мной</a>
+          <a href="#data" class="btn btn-outline">Опыт и образование</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="photo.jpg" alt="Харламов Василий Константинович" class="avatar-photo" />
+        <h3>Профиль специалиста</h3>
+        <ul class="hero-meta">
+          <li><span>Статус</span><strong>Студент</strong></li>
+          <li><span>ВУЗ</span><strong>Химфак МГУ</strong></li>
+          <li><span>Образование</span><strong>Неоконченное высшее</strong></li>
+          <li><span>Специализация</span><strong>Фундаментальная и прикладная химия</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about">
+      <h2 class="section-title">Обо мне</h2>
+      <p class="section-subtitle">Образование и фокус исследовательской работы</p>
+      <div class="card">
+        <p>
+          Я студент Химического факультета МГУ имени М. В. Ломоносова. Мои основные научные интересы сосредоточены в области <strong>медицинской химии</strong> и <strong>тонкого органического синтеза</strong>. Сочетаю углубленную академическую подготовку с реальной лабораторной практикой — от аналитической химии до синтеза и очистки органических соединений в лаборатории при МГУ.
+        </p>
+      </div>
+    </section>
+
+    <!-- Умения и направления -->
+    <section id="skills">
+      <h2 class="section-title">Умения и направления</h2>
+      <p class="section-subtitle">Области специализации и практические лабораторные навыки</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Направления деятельности</h3>
+          <div class="tags">
+            <span class="tag tag-accent">Аналитическая химия</span>
+            <span class="tag tag-accent">Медицинская химия</span>
+            <span class="tag tag-accent">Тонкий органический синтез</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Методы выделения и очистки</h3>
+          <div class="tags">
+            <span class="tag">Флэш-хроматография</span>
+            <span class="tag">Перекристаллизация</span>
+            <span class="tag">Перегонка</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Данные: образование и опыт -->
+    <section id="data">
+      <h2 class="section-title">Образование и опыт работы</h2>
+      <p class="section-subtitle">Академический статус и лабораторная практика</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Опыт работы</h3>
+          <div class="timeline-item">
+            <div class="timeline-date">Более 1 года</div>
+            <div class="timeline-role">Лаборатория тонкого органического синтеза при МГУ</div>
+            <div class="timeline-place">Синтез и очистка органических соединений</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">1 год</div>
+            <div class="timeline-role">Аналитическая лаборатория Роспотребнадзора (ВНИИЖГ)</div>
+            <div class="timeline-place">Работа в аналитической лаборатории</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Образование и данные</h3>
+          <div class="timeline-item">
+            <div class="timeline-date">Текущий статус: Студент</div>
+            <div class="timeline-role">Химический факультет МГУ</div>
+            <div class="timeline-place">Уровень образования: неоконченное высшее</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Учёная степень</div>
+            <div class="timeline-role">Отсутствует (студент)</div>
+            <div class="timeline-place">Направления: химия, медицинская химия, тонкий органический синтез</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-subtitle">Связаться со мной можно любым удобным способом</p>
+      <div class="contact-grid">
+        <a href="mailto:seventeen856@gmail.com" class="contact-card">
+          <span class="contact-label">Почта</span>
+          <span class="contact-value">seventeen856@gmail.com</span>
+        </a>
+        <a href="https://t.me/676767" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <span class="contact-label">Telegram</span>
+          <span class="contact-value">@676767</span>
+        </a>
+        <a href="tel:+79531805612" class="contact-card">
+          <span class="contact-label">Телефон</span>
+          <span class="contact-value">+7 (953) 180-56-12</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Харламов Василий Константинович.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
